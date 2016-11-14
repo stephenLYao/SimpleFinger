@@ -1,15 +1,12 @@
 const path = require('path')
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const Dashboard = require('webpack-dashboard')
-const DashboardPlugin = require('webpack-dashboard/plugin')
-const dashboard = new Dashboard()
 
 module.exports = {
   devtool: "cheap-module-eval-source-map",
   entry: [
     'webpack-hot-middleware/client',
-    './src/index'
+    './test/index'
   ],
   output: {
     path: path.join(__dirname,'dist'),
@@ -24,9 +21,9 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.scss$/,
+        test: /\.css$/,
 	      exclude: /node_modules/,
-	      loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
+	      loader: ExtractTextPlugin.extract("style-loader", "css-loader")
       }
     ],
   },
@@ -36,8 +33,7 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    new ExtractTextPlugin('bundle.css'),
-    new DashboardPlugin(dashboard.setData)
+    new ExtractTextPlugin('bundle.css')
   ]
 
 }

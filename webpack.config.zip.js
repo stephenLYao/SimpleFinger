@@ -1,16 +1,15 @@
 const path = require('path')
 const webpack = require('webpack')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
   devtool : 'source-map',
   entry: [
-    './example/index.js'
+    './src/SimpleFinger.js'
   ],
   output: {
-    path: "./dist",
-    filename: 'bundle.js',
-    publicPath: '/dist'
+    path: "./src",
+    filename: 'SimpleFinger.min.js',
+    publicPath: '/src'
   },
   module: {
     loaders: [
@@ -18,16 +17,11 @@ module.exports = {
         test: /\.js[x]?$/,
         loader: 'babel',
         exclude: /node_modules/
-      },
-      {
-        test: /\.css$/,
-	      exclude: /node_modules/,
-	      loader: ExtractTextPlugin.extract("style-loader", "css-loader")
       }
     ],
   },
   resolve: {
-    extensions: ['', '.js', '.jsx','.scss']
+    extensions: ['', '.js']
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
@@ -40,7 +34,6 @@ module.exports = {
       compressor: {
         warnings: false
       }
-    }),
-    new ExtractTextPlugin('bundle.css')
+    })
   ]
 }
