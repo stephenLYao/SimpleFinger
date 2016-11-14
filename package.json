@@ -1,16 +1,17 @@
 {
-  "name": "react-kit",
-  "version": "1.0.0",
+  "name": "simplefinger",
+  "version": "1.0.2",
   "description": "",
-  "main": "webpack.config.dev.js",
+  "main": "./src/SimpleFinger.min.js",
   "scripts": {
     "start": "node server.js",
     "lint": "eslint src",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js"
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
+    "zip": "webpack --config webpack.config.zip.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stephenLYao/react-kit.git"
+    "url": "git+https://github.com/stephenLYao/SimpleFinger"
   },
   "keywords": [
     "react",
@@ -20,9 +21,9 @@
   "author": "stephenliu",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/stephenLYao/react-kit/issues"
+    "url": "https://github.com/stephenLYao/SimpleFinger"
   },
-  "homepage": "https://github.com/stephenLYao/react-kit#readme",
+  "homepage": "https://github.com/stephenLYao/SimpleFinger",
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-core": "^6.14.0",
@@ -33,9 +34,9 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-0": "^6.5.0",
+    "classnames": "^2.2.5",
     "cross-env": "^3.0.0",
     "css-loader": "^0.25.0",
-    "emojis-list": "^2.0.1",
     "eslint": "^3.6.0",
     "eslint-plugin-babel": "^3.3.0",
     "eslint-plugin-react": "^6.3.0",
